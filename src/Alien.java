@@ -18,6 +18,7 @@ public class Alien extends GameObject{
 	}
 	void update() {
 		y+=speed;
+		super.update();
 	}
 	void draw(Graphics g) {
 		if (gotImage) {
@@ -38,4 +39,5 @@ public class Alien extends GameObject{
 	        needImage = false;
 	    }
 	}
+
 }
