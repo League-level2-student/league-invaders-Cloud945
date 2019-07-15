@@ -10,6 +10,11 @@ public class ObjectManager implements ActionListener{
 	ArrayList <Projectile> projectiles = new ArrayList<Projectile>();
 	ArrayList <Alien> aliens = new ArrayList<Alien>();
 	Random random =new Random();
+	int score =0;
+	
+	int getScore() {
+		return score;
+	}
 	
 	ObjectManager(Rocketship rocket){
 		this.rocket = rocket;
@@ -92,6 +97,7 @@ public class ObjectManager implements ActionListener{
 				if(p.collisionBox.intersects(a.collisionBox)) {
 					p.isActive = false;
 					a.isActive = false;
+					score++;
 				}
 			}
 		}

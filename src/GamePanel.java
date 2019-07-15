@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	int currentState = MENU;
 	Font titleFont = new Font("Arial", Font.PLAIN, 48);
 	Font regular = new Font("Arial", Font.PLAIN, 24);
-	int score;
+	
 	Rocketship rocket = new Rocketship(250,700,50,50);
 	ObjectManager manager = new ObjectManager(rocket);
 	public static BufferedImage image;
@@ -79,7 +79,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setColor(Color.BLACK);
 		g.drawString("GAME OVER", 100, 225);
 		g.setFont(regular);
-		g.drawString("You killed "+ score + " enemies", 125, 350);
+		g.drawString("You killed "+ manager.getScore() + " enemies", 125, 350);
 		g.drawString("Press ENTER to restart", 125, 500);
 		
 		
@@ -96,6 +96,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public void paintComponent(Graphics g){
 		if(currentState == MENU){
 		    drawMenuState(g);
+		    rocket = new Rocketship(250,700,50,50);
+		    manager = new ObjectManager(rocket);
 		}else if(currentState == GAME){
 		    drawGameState(g);
 		}else if(currentState == END){
